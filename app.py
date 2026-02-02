@@ -76,7 +76,7 @@ with st.sidebar:
     y0, y1 = st.slider("期間（西暦）", min_value=int(years[0]), max_value=int(years[-1]), value=(int(years[0]), int(years[-1])), step=1)
     view = st.radio("表示", ["グラフ", "表"])
     chart = st.radio("グラフ種類", ["折れ線", "棒", "散布図（2指標）"])
-    st.caption("※ 指標により単位（トン、％など）が異なります。")
+    st.caption("※ 指標により単位が異なります。")
 
 if len(inds) == 0:
     st.warning("サイドバーで指標を1つ以上選んでください。")
