@@ -3,7 +3,7 @@ import pandas as pd
 import numpy as np
 
 st.set_page_config(page_title="チーズ需給データ可視化", layout="wide")
-st.title("チーズ需給データ可視化（reなし・条件クリア版）")
+st.title("チーズ需給データ可視化")
 
 def read_estat_csv(path):
     with open(path, "r", encoding="utf-8") as f:
@@ -151,7 +151,7 @@ with tab3:
         last_v = float(tmp0["値"].iloc[-1])
         delta = last_v - first_v
         st.info(
-            f"例：『{ind0}』は {first_y}年→{last_y}年で "
+            f"『{ind0}』は {first_y}年→{last_y}年で "
             f"{'増加' if delta > 0 else '減少' if delta < 0 else '横ばい'}（差分 {delta:.2f}）です。"
         )
     else:
