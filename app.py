@@ -21,13 +21,13 @@ df = read_estat_csv("FEH_00500509_260126101555.csv")
 
 label_cols = [c for c in df.columns if "各種チーズ" in str(c)]
 if len(label_cols) == 0:
-    st.error("指標名の列（各種チーズ）が見つかりませんでした。")
+    st.error("指標名の列が見つかりませんでした。")
     st.stop()
 label_col = label_cols[-1]
 
 year_cols = [c for c in df.columns if ("平成" in str(c) and "年" in str(c)) or ("令和" in str(c) and "年" in str(c))]
 if len(year_cols) == 0:
-    st.error("年の列（平成/令和○年）が見つかりませんでした。")
+    st.error("年の列が見つかりませんでした。")
     st.stop()
 
 def to_num(x):
@@ -76,7 +76,7 @@ with st.sidebar:
     y0, y1 = st.slider("期間（西暦）", min_value=int(years[0]), max_value=int(years[-1]), value=(int(years[0]), int(years[-1])), step=1)
     view = st.radio("表示", ["グラフ", "表"])
     chart = st.radio("グラフ種類", ["折れ線", "棒", "散布図（2指標）"])
-    st.caption("※ 指標により単位が異なります。")
+    st.caption("指標により単位が異なります。")
 
 if len(inds) == 0:
     st.warning("サイドバーで指標を1つ以上選んでください。")
